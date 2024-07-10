@@ -8,9 +8,9 @@ connect();
 
 export async function POST(req: NextRequest) {
   try {
-    const reqBody = req.json();
+    const reqBody = await req.json();
     console.log(reqBody);
-    const { username, email, password }: any = reqBody;
+    const { username, email, password } = reqBody;
 
     // TODO: do input validation here
 
