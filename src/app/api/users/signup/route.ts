@@ -37,10 +37,10 @@ export async function POST(req: NextRequest) {
     await sendemail({ email, emailType: "VERIFY", userId: savedUser._id });
 
     return NextResponse.json({
-        message: "User registered successfully",
-        success: true,
-        savedUser
-    })
+      message: "User registered successfully",
+      success: true,
+      savedUser,
+    });
   } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }
