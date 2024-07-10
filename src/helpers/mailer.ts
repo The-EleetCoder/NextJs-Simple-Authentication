@@ -4,7 +4,7 @@ import bcryptjs from "bcryptjs";
 
 export const sendemail = async ({ email, emailType, userId }: any) => {
   try {
-    const hashedToken = await bcryptjs.hash(userId, 10);
+    const hashedToken = await bcryptjs.hash(userId.toString(), 10);
     const verifyLink = `${process.env.DOMAIN}/verifyEmail?Token=${hashedToken}`;
     const resetPasswordLink = `${process.env.DOMAIN}/resetPassword?Token=${hashedToken}`;
 
@@ -25,7 +25,7 @@ export const sendemail = async ({ email, emailType, userId }: any) => {
       port: 2525,
       auth: {
         user: process.env.NODEMAILER_USER,
-        pass: process.env.NODEMAILER_PASSORD,
+        pass: process.env.NODEMAILER_PASSWORD,
       },
     });
 

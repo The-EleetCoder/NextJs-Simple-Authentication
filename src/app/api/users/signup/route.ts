@@ -14,7 +14,8 @@ export async function POST(req: NextRequest) {
 
     // TODO: do input validation here
 
-    const user = User.findOne({ email });
+    const user = await User.findOne({ email });
+    
     if (user) {
       return NextResponse.json(
         { error: "User already exists!" },
