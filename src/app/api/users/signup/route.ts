@@ -11,7 +11,6 @@ export async function POST(req: NextRequest) {
     const reqBody = await req.json();
     console.log(reqBody);
     const { username, email, password } = reqBody;
-
     // TODO: do input validation here
 
     const user = await User.findOne({ email });

@@ -5,7 +5,7 @@ import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 connect();
 
-export async function POST(req: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
     const userId = await getDataFromToken(req);
     const user = await User.findOne({ _id: userId }).select("-password");
